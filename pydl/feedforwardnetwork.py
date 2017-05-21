@@ -84,7 +84,7 @@ class FeedForwardNetwork:
         self.bs = []
 
         with np.load(file_name) as data:
-            for i in range(0, len(data.items()), 2):
+            for i in range(0, len(list(data.items())), 2):
                 self.ws.append(data["arr_%d" % i])
                 self.bs.append(data["arr_%d" % (i + 1)])
 

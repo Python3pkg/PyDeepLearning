@@ -112,9 +112,9 @@ class TestEncoderDecoder(unittest.TestCase):
                 encoder.train(0.1, encoder_results)
 
                 if debug:
-                    print(" ".join([word_from_vector(word_vector) for word_vector in word_vectors]))
-                    print("".join([char_from_vector(h) for h in hs]))
-                    print(sum([np.sum(np.square(err)) for err in decoder_errors]))
+                    print((" ".join([word_from_vector(word_vector) for word_vector in word_vectors])))
+                    print(("".join([char_from_vector(h) for h in hs])))
+                    print((sum([np.sum(np.square(err)) for err in decoder_errors])))
 
                     encoder.save("encoder")
                     decoder.save("decoder")

@@ -67,7 +67,7 @@ class TestLstmFeedForward(unittest.TestCase):
                     h = lstm.activate(char_vectors, h0)
                     output_vector = ffn.forward_prop(h[-1], {})
                     total_err += mathutils.mean_squared_error(output_vector, word_vector)
-                print(total_err/len(training_data))
+                print((total_err/len(training_data)))
 
         lstm_out = lstm.activate(to_char_vector_sequence("infer"), h0)
         result = ffn.forward_prop(lstm_out, {})
@@ -139,7 +139,7 @@ class TestLstmFeedForward(unittest.TestCase):
                     h = lstm.activate(char_vectors, h0)
                     y = ffn.forward_prop(h, {})
                     total_err += mathutils.mean_squared_error(y, word_vector)
-                print(total_err/len(training_data))
+                print((total_err/len(training_data)))
 
         h = lstm.activate(to_char_vector_sequence("infer"), h0)
         y = ffn.forward_prop(h, {})

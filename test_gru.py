@@ -201,7 +201,7 @@ class TestGru(unittest.TestCase):
                 for char_vectors, word_vector in training_data:
                     hs = n.forward_prop(char_vectors, np.zeros(len(index_to_word)), {})
                     total_err += mathutils.mse(hs[-1], word_vector)
-                print(total_err/len(training_data))
+                print((total_err/len(training_data)))
 
         result = n.forward_prop(to_char_vector_sequence("infer"), np.zeros(len(index_to_word)), {})[-1]
         self.assertEquals("infer", index_to_word[np.argmax(result)])

@@ -58,7 +58,7 @@ class TestNoOutputLstm(unittest.TestCase):
             "b_c": intermediate_results["db_c"]
         }
 
-        for attr, numerical_grad in checks.items():
+        for attr, numerical_grad in list(checks.items()):
             grad_check(attr, numerical_grad)
 
         for i in np.ndindex(dh0.shape):
@@ -116,7 +116,7 @@ class TestNoOutputLstm(unittest.TestCase):
             "b_c": intermediate_results["db_c"]
         }
 
-        for attr, numerical_grad in checks.items():
+        for attr, numerical_grad in list(checks.items()):
             grad_check(attr, numerical_grad)
 
         for i in np.ndindex(dh0.shape):
@@ -173,7 +173,7 @@ class TestNoOutputLstm(unittest.TestCase):
                 for char_vectors, word_vector in training_data:
                     h = n.activate(char_vectors, np.zeros(len(index_to_word)))
                     total_err += mathutils.mean_squared_error(h, word_vector)
-                print(total_err/len(training_data))
+                print((total_err/len(training_data)))
 
         result = n.activate(to_char_vector_sequence("infer"), np.zeros(len(index_to_word)))
         self.assertEquals("infer", index_to_word[np.argmax(result)])
@@ -205,7 +205,7 @@ class TestNoOutputLstm(unittest.TestCase):
         end = time.time()
         time_taken = end - start
 
-        print(str(epochs) + " training epochs took " + str(time_taken) + " seconds")
+        print((str(epochs) + " training epochs took " + str(time_taken) + " seconds"))
 
 if __name__ == '__main__':
     unittest.main()
